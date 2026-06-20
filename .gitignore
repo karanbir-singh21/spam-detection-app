@@ -1,0 +1,13 @@
+# project handout - not part of the code
+*.pdf
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# os / editor
+.DS_Store
+.vscode/
+.idea/
