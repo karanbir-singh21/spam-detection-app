@@ -65,5 +65,5 @@ def prepare_data(csv_path):
 
 # Block to test the file independently
 if __name__ == "__main__":
-    X_train, X_test, y_train, y_test, vectorizer = prepare_data("spam.csv")
+    X_train, X_test, y_train, y_test, vectorizer, df = prepare_data("spam.csv")
     print("Data ready for model training.")
