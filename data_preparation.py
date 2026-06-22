@@ -5,9 +5,11 @@
 #   1. load + clean the csv with pandas
 #   2. turn the text into numbers with TfidfVectorizer
 #   3. split into train/test with train_test_split
+#
 # Then I hand the train/test data + vectorizer to the model training part.
 
 import pandas as pd
+
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.model_selection import train_test_split
 
@@ -27,7 +29,7 @@ def load_and_clean_data(csv_path):
     df = df[df["label"].isin(["ham", "spam"])]
     df = df.reset_index(drop=True)
 
-    print("Loaded", len(df), "messages")
+    print("Loaded", len(df), "messages\n")
     print(df["label"].value_counts(), "\n")
     return df
 
@@ -59,9 +61,9 @@ def prepare_data(csv_path):
     df = load_and_clean_data(csv_path)
     X, y, vectorizer = extract_features(df)
     X_train, X_test, y_train, y_test = split_data(X, y)
-    return X_train, X_test, y_train, y_test, vectorizer
+    return X_train, X_test, y_train, y_test, vectorizer, df
 
-
+# Block to test the file independently
 if __name__ == "__main__":
     X_train, X_test, y_train, y_test, vectorizer = prepare_data("spam.csv")
     print("Data ready for model training.")
